@@ -1,34 +1,33 @@
-const ref = {
+const refs = {
   Days: document.querySelector('.value[data-value="days"]'),
   Hours: document.querySelector('.value[data-value="hours"]'),
   Mins: document.querySelector('.value[data-value="mins"]'),
   Secs: document.querySelector('.value[data-value="secs"]'),
 };
 
-const CountdownTimer = function ({ selector, targertDate }) {
+const СountdownTimer = function ({ selector, targetDate }) {
   this.selector = selector;
-  this.targertDate = targertDate;
+  this.targetDate = targetDate;
 
   this.start = function () {
-    const startTime = targertDate;
+    const startTime = targetDate;
 
     setInterval(() => {
       const currentTime = Date.now();
       if (currentTime > startTime) {
-        alert('need to put date in future!');
+        alert('need to put date in future!!');
       }
-
       const deltaTime = startTime - currentTime;
-      const { days, hours, mins, secs } = getTime(deltaTime);
-      ref.Days.innerText = days;
-      ref.Hours.innerText = hours;
-      ref.Mins.innerText = mins;
-      ref.Secs.innerText = secs;
+      const { days, hours, mins, secs } = getTimer(deltaTime);
+      refs.Days.innerText = days;
+      refs.Hours.innerText = hours;
+      refs.Mins.innerText = mins;
+      refs.Secs.innerText = secs;
     }, 1000);
   };
 };
 
-const timer = new CountdownTimer({
+const timer = new СountdownTimer({
   selector: '#timer-1',
   targetDate: new Date('09, 01, 2021'),
 });
@@ -39,7 +38,7 @@ function pad(value) {
   return String(value).padStart(2, '0');
 }
 
-function getTime(time) {
+function getTimer(time) {
   const days = pad(Math.floor(time / (1000 * 60 * 60 * 24)));
   const hours = pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
   const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));

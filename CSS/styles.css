@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+}
+
+.timer {
+  margin-top: 100px;
+
+  display: flex;
+  justify-content: center;
+}
+
+#timer-1 {
+  position: relative;
+  display: block;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 20%);
+  text-align: center;
+  margin: 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  height: 30px;
+  font-weight: 500;
+}
+
+.value {
+  text-size-adjust: 24px;
+  margin-left: 30px;
+}
+
+.field {
+  font-size: 20px;
+}
+
+.field:last-child {
+  color: rgb(11, 221, 29);
+}
